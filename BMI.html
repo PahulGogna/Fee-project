@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<style>
+    body{
+        background-color:aliceblue;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display:contents;
+        border-style: solid;
+
+    }
+    input{
+        background-color:beige;
+        border-radius: 6px;
+        width: 100%;
+    }
+    #button{  /* all the tags with id = 'button' will be affected*/
+        background-color:darkturquoise;
+        border-radius: 7px;
+        width:60%;
+        color: #fff;
+        transition: 300ms;
+    }
+    #button:hover{
+        background-color: #008080;
+    }
+
+    #nav_b{
+        background-color:darkturquoise;
+        border-radius: 7px;
+        width:100px;
+        height: 50px;
+    }
+
+    h1{
+        color:rgb(19, 85, 143);
+        
+    }
+    table{
+        border-radius: 10px;
+        border-style:solid;
+        padding: 5px;
+        border-color: darkturquoise;
+    }
+    td{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .color{
+        background-color: rgb(19, 85, 143);
+        padding: 20px 20px;
+    }
+    .Back:hover{
+        background-color: #008080;
+    }
+
+    .Back{
+        background-color: darkturquoise;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        transition: 300ms;
+    }
+</style>
+
+<script>
+function Click(){
+    var height = document.getElementById("Height").value;
+    var weight = document.getElementById("Weight").value;
+    var BMI = weight/height**2;
+
+    if(BMI < 18.5){
+        document.getElementById("OutPut").outerHTML ="<font id='OutPut' color='blueviolet'> Your BMI is = " + BMI + "<br> *Underweight* </font>";
+        }
+
+    if(18.5 < BMI){
+        document.getElementById("OutPut").outerHTML ="<font id='OutPut' color='darkturquoise'> Your BMI is = " + BMI + "<br> *Healthy Weight* </font>";
+        }
+
+    if(25 <= BMI){
+        document.getElementById("OutPut").outerHTML ="<font id='OutPut' color='darkorange'> Your BMI is = " + BMI + "<br> *Overweight* </font>";
+        }
+
+    if(BMI >= 30 ){
+        document.getElementById("OutPut").outerHTML ="<font id='OutPut' color='red'> Your BMI is = " + BMI + "<br> *Obese* </font>";
+        }
+
+    if(BMI == 'NaN'){
+        document.getElementById("OutPut").innerHTML = 'Enter Valid Details';
+        }
+    if(weight == 0){
+    document.getElementById("OutPut").innerHTML = 'Enter Valid Details';
+    }
+    }
+
+function Clear(){
+
+    document.getElementById("Height").value = '';
+    document.getElementById("Weight").value = '';
+    document.getElementById("OutPut").innerHTML = '';
+
+}
+
+</script>
+
+<body>
+    <div class="color"><a class = "Back" href="Welcome_page.html">Back</a></div>
+<div align = "center">
+    <h1 align="center"><u>Body Mass Index Calculator</u></h1>
+    
+    <table border="2" align="center">
+        <tr>
+            <td>Weight(in Kg):</td>
+            <td><input type="number" name="weight" id="Weight" required></td>
+        </tr>
+        <tr>
+            <td>Height(in meters):</td>
+            <td ><input type="number" name="Height" id="Height" required></td>
+        </tr>
+        <tr>
+            <td align="center" colspan='2'><input type="submit" value="Calculate" id="button" onclick="Click()"></td>
+
+        </tr>
+    </table>
+    <h3 align="center"><font id="OutPut"></font>
+    </h3>
+</div>
+</body>
+</html>
