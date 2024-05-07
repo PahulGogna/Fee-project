@@ -1,1 +1,1 @@
-This is a BMI calculator Project made using html, css, JavaScript.
+This is a BMI calculator Project made using html,css,JavaScript.
